@@ -20,29 +20,42 @@
 
 //  BrandonS work
 //  user enters zip, date, genre
-var zip = "78753"
+// var zip = "78753"
 
-var jamApiKey = "h6ggf6cq5fedwfpe2szchhrr";
+// var jamApiKey = "h6ggf6cq5fedwfpe2szchhrr";
 
-jamQuery = "http://api.jambase.com/events?zipCode=" + zip + "&page=1&api_key=" + jamApiKey + "&o=json"
+// jamQuery = "http://api.jambase.com/events?zipCode=" + zip + "&page=1&api_key=" + jamApiKey + "&o=json"
 
-$.get(jamQuery).done(function(jamresponse) {
-  console.log(jamresponse);
-  //  need to store band, venue and date info
-});
+// $.get(jamQuery).done(function(jamresponse) {
+//   console.log(jamresponse);
+//   //  need to store band, venue and date info
+// });
+
+// var bitApiKey = "notify";
+// bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
+
+// $.get(bitBandQuery).done(function(bitBandResponse) {
+//   console.log(bitBandResponse);
+//   //  need to store band, venue and date info
+// });
 
 var bitApiKey = "notify";
-bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
+var bandName = "Lettuce";
+var cityName = "Austin";
+//  bitEventQuery = "https://rest.bandsintown.com/artists/Ghost%20Wolves/events?app_id=notify&date=2017-12-05%2C2018-03-01" //came_from="+ bitApiKey
 
-$.get(bitBandQuery).done(function(bitBandResponse) {
-  console.log(bitBandResponse);
-  //  need to store band, venue and date info
-});
+bitEventQuery = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=notify&date=2017-12-05%2C2018-03-01" //came_from="+ bitApiKey
 
-var bitApiKey = "notify";
-bitEventQuery = "https://rest.bandsintown.com/artists/Ghost%20Wolves/events?app_id=notify&date=2017-12-05%2C2018-03-01" //came_from="+ bitApiKey
 
 $.get(bitEventQuery).done(function(bitEventResponse) {
   console.log(bitEventResponse);
+  // console.log(bitEventResponse.venue.city);
+  for (i = 0; i < bitEventResponse.length; i++) {
+    console.log(bitEventResponse[i].venue.city);
+    if (bitEventResponse[i].venue.city === cityName){
+      console.log(bitEventResponse[i]);
+    }
+  }
+
   //  need to store band, venue and date info
 });
