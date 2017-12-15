@@ -3,7 +3,7 @@
 // var requestedBand; 
 // var genre;
 
-var apiKey = "Z0wYO4KzueVupwRXOVBmc2K5VNaAZS6w";
+var apiKey = "E-mail hopefully coming";
 var buttonArray = [];
 $(document).ready(function(){
 	function displayBandInfo(){
