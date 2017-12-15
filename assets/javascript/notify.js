@@ -39,27 +39,51 @@ var zip = "78753"
 var jamApiKey = "h6ggf6cq5fedwfpe2szchhrr";
 var jamQuery = "http://api.jambase.com/events?zipCode=" + zip + "&page=1&api_key=" + jamApiKey + "&o=json";
 var jamQuery2 = "http://api.jambase.com/artists?name=" + bandName + "&page=0&api_key=" + jamApiKey + "&o=json";
+var zipQuery = "https://www.zipcodeapi.com/rest/IDaZkPalkusSje1nG8WziVpnG895ZLzEyq4N5BoxtCzYD9yEPeJJpbD6aBheyDPC/info.json/" + zip + "/radians";
 
+var songkickAPI = "pnFUa6ukavVrRL6g";
+var songkickMetro = "9179-us-austin";
+var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
 
-$.get(jamQuery).done(function(jamresponse) {
-  console.log(jamresponse);
-  //  need to store band, venue and date info
+$.get(songkickQuery).done(function(songkickData) {
+  console.log(songkickData);
+  for (var i = 0; i < 10; i++) {
+    console.log(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName);
+    console.log(songkickData.resultsPage.results.event[i].venue.displayName);
+    console.log(songkickData.resultsPage.results.event[i].start.date);
+    console.log(songkickData.resultsPage.results.event[i].venue.uri);
+    console.log(songkickData.resultsPage.results.event[i].venue.uri);
+
+    var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
+    var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
+    $("#movies-view").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
+    $("#movies-view").append(songkickData.resultsPage.results.event[i].venue.displayName + "<br>");
+    $("#movies-view").append(songkickData.resultsPage.results.event[i].start.date + "<br>");
+    $("#movies-view").append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
+    $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
+  }
 });
 
-$.get(jamQuery2).done(function(jamresponse2) {
-  console.log(jamresponse2.Artists);
-  //  need to store band, venue and date info
-});
+
+// $.get(jamQuery).done(function(jamresponse) {
+//   console.log(jamresponse);
+//   //  need to store band, venue and date info
+// });
+
+// $.get(jamQuery2).done(function(jamresponse2) {
+//   console.log(jamresponse2.Artists);
+//   //  need to store band, venue and date info
+// });
 
 //  Search for JUST A BAND
 var bitApiKey = "notify";
 bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
 
 //  get simple data from bandsintown
-$.get(bitBandQuery).done(function(bitBandResponse) {
-  console.log(bitBandResponse.name);
-  //  need to store band, venue and date info
-});
+// $.get(bitBandQuery).done(function(bitBandResponse) {
+//   console.log(bitBandResponse.name);
+//   //  need to store band, venue and date info
+// });
 
 //  Find a band using 'notify' using band name and city name
 var bitApiKey = "notify";
@@ -68,19 +92,27 @@ var bitApiKey = "notify";
 var bitEventQuery = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=notify&date=" + beginDate + "%2C" + endDate; //came_from="+ bitApiKey
 
 //  get data from bandsintown
-$.get(bitEventQuery).done(function(bitEventResponse) {
-  console.log(bitEventResponse);
-  // console.log(bitEventResponse.venue.city);
-  for (i = 0; i < bitEventResponse.length; i++) {
-    // console.log(bitEventResponse[i].venue.city);
-    if (bitEventResponse[i].venue.city === cityName){
-      console.log(bitEventResponse[i].venue.city);
-      console.log(bitEventResponse[i].venue.name);
-      console.log(bitEventResponse[i].venue.city);
-      console.log(bitEventResponse[i].lineup);
-      var info = bitEventResponse[i];
-      console.log(info.lineup[0] + " @ " + info.venue.name + " (" + info.venue.city + ", " + info.venue.region + ")");
-    }
-  }
-  //  need to store band, venue and date info
-});
+// $.get(bitEventQuery).done(function(bitEventResponse) {
+//   console.log(bitEventResponse);
+//   // console.log(bitEventResponse.venue.city);
+//   for (i = 0; i < bitEventResponse.length; i++) {
+//     // console.log(bitEventResponse[i].venue.city);
+//     if (bitEventResponse[i].venue.city === cityName){
+
+//       console.log(bitEventResponse[i].venue.city);
+//       console.log(bitEventResponse[i].venue.name);
+//       console.log(bitEventResponse[i].venue.city);
+//       console.log(bitEventResponse[i].lineup);
+//       var info = bitEventResponse[i];
+//       console.log(info.lineup[0] + " @ " + info.venue.name + " (" + info.venue.city + ", " + info.venue.region + ")");
+//     }
+//   }
+//   //  need to store band, venue and date info
+// });
+
+
+// zip code to city name
+// $.get(zipQuery).done(function(zipResponse) {
+//   console.log("here's some zip data!");
+//   console.log(zipResponse);
+// });
