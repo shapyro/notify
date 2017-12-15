@@ -51,6 +51,12 @@ $.get(songkickQuery).done(function(songkickData) {
     console.log(songkickData.resultsPage.results.event[i].venue.uri);
     console.log(songkickData.resultsPage.results.event[i].venue.uri);
 
+<<<<<<< HEAD
+// $.get(jamQuery2).done(function(jamresponse2) {
+//   console.log(jamresponse2.Artists);
+//   //  need to store band, venue and date info
+// });
+=======
     var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
     var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
     $("#movies-view").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
@@ -60,6 +66,7 @@ $.get(songkickQuery).done(function(songkickData) {
     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
   }
 });
+>>>>>>> 07c1fea91710d3e880d1e4fc1508b5bcda41b11e
 
 
 // $.get(jamQuery).done(function(jamresponse) {
@@ -73,10 +80,14 @@ $.get(songkickQuery).done(function(songkickData) {
 // });
 
 //  Search for JUST A BAND
-var bitApiKey = "notify";
-bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
+// var bitApiKey = "notify";
+// bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
 
+<<<<<<< HEAD
+// //  get simple data from bandsintown
+=======
 //  get simple data from bandsintown
+>>>>>>> 07c1fea91710d3e880d1e4fc1508b5bcda41b11e
 // $.get(bitBandQuery).done(function(bitBandResponse) {
 //   console.log(bitBandResponse.name);
 //   //  need to store band, venue and date info
@@ -84,7 +95,7 @@ bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notif
 
 //  Find a band using 'notify' using band name and city name
 var bitApiKey = "notify";
-
+//  bandsintown API requires bandname apparently
 //  bitEventQuery = "https://rest.bandsintown.com/artists/Ghost%20Wolves/events?app_id=notify&date=2017-12-05%2C2018-03-01" //came_from="+ bitApiKey
 var bitEventQuery = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=notify&date=" + beginDate + "%2C" + endDate; //came_from="+ bitApiKey
 
