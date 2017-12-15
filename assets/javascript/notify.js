@@ -3,20 +3,23 @@
 // var requestedBand; 
 // var genre;
 
-// var queryURL = "http://showlistaustin.com/";
-// function displayMovieInfo() {
-// 	$.ajax({
-//           url: queryURL,
-//           method: "GET"
-//     }).done(function(response) {
-//           console.log(response);
-//           $('#movies-view').append("<div></div>");
-//           // Retrieves the Rating Data
-//           $('#movies-view').append("<h1>" + response.Rated + "</h1>" + "<h1>" + response.Released + "</h1>"+ "<h1>" + response.Plot + "</h1>" + "<img src =" +response.Poster+">");
-//       });
-// }
-// displayMovieInfo();
-
+var apiKey = "Z0wYO4KzueVupwRXOVBmc2K5VNaAZS6w";
+var buttonArray = [];
+$(document).ready(function(){
+	function displayBandInfo(){
+		var bandName = $(this).attr("data-name");
+		var queryURL = "https://freemusicarchive.org/api/trackSearch?q=" + bandName + "&limit=10";		
+		$.ajax({
+				url: queryURL,
+				method: "GET"
+			}).done(function(choice){
+				console.log(choice.data[0]);
+				for(i= 0; i<choice.data.length; i++){
+					$('#band').prepend("<img src=" + choice.data[i].images.original_still.url +" data state = 'still' style = 'height = 400px' class= 'gif'>");
+				}
+				})
+	}
+})
 
 //  BrandonS work
 //  user enters zip, date, and?
