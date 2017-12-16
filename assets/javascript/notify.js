@@ -136,7 +136,7 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
 	};
 	initMap();
 	}
-});
+// });
 
 //  --------------------------------------------------------------
 //  jamBase
