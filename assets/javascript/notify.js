@@ -135,7 +135,7 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
 	        console.log("map: " + map);
 	};
 	initMap();
-	}
+// 	}
 // });
 
 //  --------------------------------------------------------------
