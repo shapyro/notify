@@ -110,14 +110,7 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
 //     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
 //   }
 // });
-    var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
-    var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
-    $("#movies-view").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
-    $("#movies-view").append(songkickData.resultsPage.results.event[i].venue.displayName + "<br>");
-    $("#movies-view").append(songkickData.resultsPage.results.event[i].start.date + "<br>");
-    $("#movies-view").append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
-    $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
-	
+
     // Brandon C map addition (has to be in this function)
 	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
 	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
