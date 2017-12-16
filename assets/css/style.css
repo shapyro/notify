@@ -10,6 +10,13 @@ nav {
 	background-color: #00CECB;
 }
 
+.buffer {
+  width: 25%;
+}
+.showDiv {
+  margin: 2%;
+  border: 1px solid black;
+}
 .footer {
    position: fixed;
    left: 0;
