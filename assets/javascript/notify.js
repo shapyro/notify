@@ -1,11 +1,9 @@
 
 //  BrandonC work
-// var requestedBand; 
-// var genre;
-
 var apiKey = "E-mail hopefully coming";
 var buttonArray = [];
-$(document).ready(function(){
+	
+	//If we get freemusic archive API keys:
 	function displayBandInfo(){
 		var bandName = $(this).attr("data-name");
 		var queryURL = "https://freemusicarchive.org/api/trackSearch?q=" + bandName + "&limit=10";		
@@ -19,7 +17,8 @@ $(document).ready(function(){
 				}
 				})
 	}
-})
+
+
 
 //  BrandonS work
 //  user enters zip, date, and?
@@ -61,7 +60,32 @@ $.get(songkickQuery).done(function(songkickData) {
     $("#movies-view").append(songkickData.resultsPage.results.event[i].start.date + "<br>");
     $("#movies-view").append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
-  }
+	
+    // Brandon C addition (has to be in this function)
+	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
+	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
+	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
+	console.log(lat);
+	console.log(lon);
+	var local = {
+		lat: lat, 
+		lng: lon 
+	};
+	console.log(local);
+	function initMap() {
+	       	var map = new google.maps.Map(document.getElementById("map"), {
+	          zoom: 10,
+	          center: local
+	        });
+	        var marker = new google.maps.Marker({
+	          position: local,
+	          map: map
+	        });
+	        $("#movies-view").append(map);
+	        console.log("map: " + map);
+	};
+	initMap();
+	}
 });
 
 
