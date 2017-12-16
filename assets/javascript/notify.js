@@ -108,29 +108,29 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
 // });
 
     // Brandon C map addition (has to be in this function)
-	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
-	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
-	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
-	console.log(lat);
-	console.log(lon);
-	var local = {
-		lat: lat, 
-		lng: lon 
-	};
-	console.log(local);
-	function initMap() {
-	       	var map = new google.maps.Map(document.getElementById("map"), {
-	          zoom: 19,
-	          center: local
-	        });
-	        var marker = new google.maps.Marker({
-	          position: local,
-	          map: map
-	        });
-	        $("#movies-view").append(map);
-	        console.log("map: " + map);
-	};
-	initMap();
+// 	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
+// 	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
+// 	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
+// 	console.log(lat);
+// 	console.log(lon);
+// 	var local = {
+// 		lat: lat, 
+// 		lng: lon 
+// 	};
+// 	console.log(local);
+// 	function initMap() {
+// 	       	var map = new google.maps.Map(document.getElementById("map"), {
+// 	          zoom: 19,
+// 	          center: local
+// 	        });
+// 	        var marker = new google.maps.Marker({
+// 	          position: local,
+// 	          map: map
+// 	        });
+// 	        $("#movies-view").append(map);
+// 	        console.log("map: " + map);
+// 	};
+// 	initMap();
 
 
 //  --------------------------------------------------------------
