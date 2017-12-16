@@ -1,21 +1,23 @@
 
 //  BrandonC work
-// var requestedBand; 
-// var genre;
+var apiKey = "E-mail hopefully coming";
+var buttonArray = [];
+	
+	//If we get freemusic archive API keys:
+// 	function displayBandInfo(){
+// 		var bandName = $(this).attr("data-name");
+// 		var queryURL = "https://freemusicarchive.org/api/trackSearch?q=" + bandName + "&limit=10";		
+// 		$.ajax({
+// 				url: queryURL,
+// 				method: "GET"
+// 			}).done(function(choice){
+// 				console.log(choice.data[0]);
+// 				for(i= 0; i<choice.data.length; i++){
+// 					$('#band').prepend("<img src=" + choice.data[i].images.original_still.url +" data state = 'still' style = 'height = 400px' class= 'gif'>");
+// 				}
+// 				})
+// 	}
 
-// var queryURL = "http://showlistaustin.com/";
-// function displayMovieInfo() {
-// 	$.ajax({
-//           url: queryURL,
-//           method: "GET"
-//     }).done(function(response) {
-//           console.log(response);
-//           $('#movies-view').append("<div></div>");
-//           // Retrieves the Rating Data
-//           $('#movies-view').append("<h1>" + response.Rated + "</h1>" + "<h1>" + response.Released + "</h1>"+ "<h1>" + response.Plot + "</h1>" + "<img src =" +response.Poster+">");
-//       });
-// }
-// displayMovieInfo();
 
 
 //  BrandonS work
@@ -104,6 +106,31 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
 //     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
 //   }
 // });
+
+    // Brandon C map addition (has to be in this function)
+	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
+	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
+	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
+	console.log(lat);
+	console.log(lon);
+	var local = {
+		lat: lat, 
+		lng: lon 
+	};
+	console.log(local);
+	function initMap() {
+	       	var map = new google.maps.Map(document.getElementById("map"), {
+	          zoom: 19,
+	          center: local
+	        });
+	        var marker = new google.maps.Marker({
+	          position: local,
+	          map: map
+	        });
+	        $("#movies-view").append(map);
+	        console.log("map: " + map);
+	};
+	initMap();
 
 
 //  --------------------------------------------------------------
