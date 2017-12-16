@@ -40,10 +40,19 @@ var zipQuery = "https://www.zipcodeapi.com/rest/IDaZkPalkusSje1nG8WziVpnG895ZLzE
 
 var songkickAPI = "pnFUa6ukavVrRL6g";
 var songkickMetro = "9179-us-austin";
+var songkickLocationQuery = "http://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
 var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
 
+$.get(songkickLocationQuery).done(function(songkickLocation) {
+  console.log(songkickLocation.resultsPage.results.location[0].metroArea.id)//.city.metroArea.id);
+  console.log(songkickLocation.resultsPage.results.location[0].city.displayName);
+  console.log(songkickLocation.resultsPage.results.location[0].city.state.displayName);
+  // var = songkickLocation.resultsPage.results.location;
+});
+
+
 $.get(songkickQuery).done(function(songkickData) {
-  console.log(songkickData);
+  // console.log(songkickData);
   for (var i = 0; i < 10; i++) {
     console.log(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName);
     console.log(songkickData.resultsPage.results.event[i].venue.displayName);
@@ -51,12 +60,10 @@ $.get(songkickQuery).done(function(songkickData) {
     console.log(songkickData.resultsPage.results.event[i].venue.uri);
     console.log(songkickData.resultsPage.results.event[i].venue.uri);
 
-<<<<<<< HEAD
 // $.get(jamQuery2).done(function(jamresponse2) {
 //   console.log(jamresponse2.Artists);
 //   //  need to store band, venue and date info
 // });
-=======
     var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
     var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
     $("#movies-view").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
@@ -66,7 +73,6 @@ $.get(songkickQuery).done(function(songkickData) {
     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
   }
 });
->>>>>>> 07c1fea91710d3e880d1e4fc1508b5bcda41b11e
 
 
 // $.get(jamQuery).done(function(jamresponse) {
@@ -83,11 +89,8 @@ $.get(songkickQuery).done(function(songkickData) {
 // var bitApiKey = "notify";
 // bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
 
-<<<<<<< HEAD
 // //  get simple data from bandsintown
-=======
 //  get simple data from bandsintown
->>>>>>> 07c1fea91710d3e880d1e4fc1508b5bcda41b11e
 // $.get(bitBandQuery).done(function(bitBandResponse) {
 //   console.log(bitBandResponse.name);
 //   //  need to store band, venue and date info
