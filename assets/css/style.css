@@ -1,0 +1,30 @@
+body {
+	background-color: #FFFFEA;
+}
+
+#container {
+	background-color: #FFFFEA;
+}
+
+nav {
+	background-color: #00CECB;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #A398CF;
+   color: white;
+   text-align: left;
+}
+
+.footer-logo {
+	float: left;
+}
+
+#footer-cpyrt {
+	float: left;
+}
+

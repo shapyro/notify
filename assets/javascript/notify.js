@@ -42,10 +42,19 @@ var zipQuery = "https://www.zipcodeapi.com/rest/IDaZkPalkusSje1nG8WziVpnG895ZLzE
 
 var songkickAPI = "pnFUa6ukavVrRL6g";
 var songkickMetro = "9179-us-austin";
+var songkickLocationQuery = "http://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
 var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
 
+$.get(songkickLocationQuery).done(function(songkickLocation) {
+  console.log(songkickLocation.resultsPage.results.location[0].metroArea.id)//.city.metroArea.id);
+  console.log(songkickLocation.resultsPage.results.location[0].city.displayName);
+  console.log(songkickLocation.resultsPage.results.location[0].city.state.displayName);
+  // var = songkickLocation.resultsPage.results.location;
+});
+
+
 $.get(songkickQuery).done(function(songkickData) {
-  console.log(songkickData);
+  // console.log(songkickData);
   for (var i = 0; i < 10; i++) {
     console.log(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName);
     console.log(songkickData.resultsPage.results.event[i].venue.displayName);
@@ -53,6 +62,10 @@ $.get(songkickQuery).done(function(songkickData) {
     console.log(songkickData.resultsPage.results.event[i].venue.uri);
     console.log(songkickData.resultsPage.results.event[i].venue.uri);
 
+// $.get(jamQuery2).done(function(jamresponse2) {
+//   console.log(jamresponse2.Artists);
+//   //  need to store band, venue and date info
+// });
     var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
     var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
     $("#movies-view").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
@@ -61,7 +74,7 @@ $.get(songkickQuery).done(function(songkickData) {
     $("#movies-view").append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
 	
-    // Brandon C addition (has to be in this function)
+    // Brandon C map addition (has to be in this function)
 	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
 	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
 	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
@@ -74,7 +87,7 @@ $.get(songkickQuery).done(function(songkickData) {
 	console.log(local);
 	function initMap() {
 	       	var map = new google.maps.Map(document.getElementById("map"), {
-	          zoom: 10,
+	          zoom: 19,
 	          center: local
 	        });
 	        var marker = new google.maps.Marker({
@@ -100,9 +113,10 @@ $.get(songkickQuery).done(function(songkickData) {
 // });
 
 //  Search for JUST A BAND
-var bitApiKey = "notify";
-bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
+// var bitApiKey = "notify";
+// bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notify" //came_from="+ bitApiKey
 
+// //  get simple data from bandsintown
 //  get simple data from bandsintown
 // $.get(bitBandQuery).done(function(bitBandResponse) {
 //   console.log(bitBandResponse.name);
@@ -111,7 +125,7 @@ bitBandQuery = "https://rest.bandsintown.com/artists/ghost%20wolves?app_id=notif
 
 //  Find a band using 'notify' using band name and city name
 var bitApiKey = "notify";
-
+//  bandsintown API requires bandname apparently
 //  bitEventQuery = "https://rest.bandsintown.com/artists/Ghost%20Wolves/events?app_id=notify&date=2017-12-05%2C2018-03-01" //came_from="+ bitApiKey
 var bitEventQuery = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=notify&date=" + beginDate + "%2C" + endDate; //came_from="+ bitApiKey
 
