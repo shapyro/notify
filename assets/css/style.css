@@ -8,6 +8,20 @@ body {
 
 nav {
 	background-color: #00CECB;
+	padding-top: 2px;
+}
+
+#navbar {
+	padding-top: 2px;
+}
+
+.navbar-brand {
+	padding-top: 2px;
+	margin-top: 2px;
+}
+
+#header-logo {
+	padding-top: 2px;
 }
 
 .footer {
@@ -24,7 +38,11 @@ nav {
 	float: left;
 }
 
-#footer-cpyrt {
-	float: left;
+#ftr-cpyrt {
+	font-size: 13px;
+}
+
+#api-link-row {
+	font-size: 10px;
 }
 
