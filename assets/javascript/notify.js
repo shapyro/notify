@@ -57,10 +57,6 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
       console.log(songkickData.resultsPage.results.event[i].venue.uri);
       console.log(songkickData.resultsPage.results.event[i].venue.uri);
   
-  // $.get(jamQuery2).done(function(jamresponse2) {
-  //   console.log(jamresponse2.Artists);
-  //   //  need to store band, venue and date info
-  // });
       var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
       var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
       
@@ -72,7 +68,7 @@ $.get(songkickLocationQuery).done(function(songkickLocation) {
         <div class="venue">${songkickData.resultsPage.results.event[i].venue.displayName}</div>
         <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
         `);
-      showDiv.append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
+      showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
       $(".showlist").append(showDiv);
 
       // $(".showlist").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
