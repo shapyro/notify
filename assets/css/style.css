@@ -1,3 +1,8 @@
+* {
+  text-align: center;
+  box-sizing: border-box;
+}
+
 body {
 	background-color: #FFFFEA;
 }
@@ -30,23 +35,35 @@ nav {
 .showDiv {
   margin: 2%;
   border: 1px solid black;
+  height: 225px;
 }
 
 #bandPic {
+  float: left;
   margin: 10px;
   width: 200px;
 }
-.artist {
+.bandInfo {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  float: right;
+  width: 75%;
   margin: 10px;
-  width: 25%;
+}
+.artist {
+  float: left;
+  margin: 10px;
+  width: 40%;
 }
 .venue {
+  float: right;
   margin: 10px;
-  width: 25%;
+  width: 40%;
 }
 .showDate {
+  float: right;
   margin: 10px;
-  width: 25%;
+  width: 75%;
 }
 #venueLink {
   margin: 10px;

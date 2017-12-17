@@ -58,18 +58,23 @@ $(document).ready(function(){
       $.get(songkickQuery).done(function(songkickData) {
         // songkickData... get some show info for a Metro Area
         for (var i = 0; i < 10; i++) {
+          console.log(songkickData.resultsPage.results);
   
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
+          console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName)
       
           var showDiv = $('<div>');
           showDiv.addClass('showDiv');
           showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
           showDiv.append(
-            `<div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
-            <div class="venue">${songkickData.resultsPage.results.event[i].venue.displayName}</div>
+            `<div class="bandInfo">
+              <div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
+              <div class="venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
+            </div>
             <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
-            `);
+            `
+          );
           showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
           $(".showlist").append(showDiv);
 
