@@ -31,26 +31,6 @@ nav {
   margin: 2%;
   border: 1px solid black;
 }
-
-#bandPic {
-  margin: 10px;
-  width: 200px;
-}
-.artist {
-  margin: 10px;
-  width: 25%;
-}
-.venue {
-  margin: 10px;
-  width: 25%;
-}
-.showDate {
-  margin: 10px;
-  width: 25%;
-}
-#venueLink {
-  margin: 10px;
-}
 .footer {
    position: fixed;
    left: 0;
