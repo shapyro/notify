@@ -18,6 +18,23 @@ var buttonArray = [];
 //        })
 //  }
 
+	
+	//If we get freemusic archive API keys:
+// 	function displayBandInfo(){
+// 		var bandName = $(this).attr("data-name");
+// 		var queryURL = "https://freemusicarchive.org/api/trackSearch?q=" + bandName + "&limit=10";		
+// 		$.ajax({
+// 				url: queryURL,
+// 				method: "GET"
+// 			}).done(function(choice){
+// 				console.log(choice.data[0]);
+// 				for(i= 0; i<choice.data.length; i++){
+// 					$('#band').prepend("<img src=" + choice.data[i].images.original_still.url +" data state = 'still' style = 'height = 400px' class= 'gif'>");
+// 				}
+// 				})
+// 	}
+
+
 
 
 //  BrandonS work
@@ -90,6 +107,7 @@ $(document).ready(function(){
 
 
     // Brandon C map addition (has to be in this function)
+
 //  var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
 //  var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
 //  var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
@@ -113,6 +131,31 @@ $(document).ready(function(){
 //          console.log("map: " + map);
 //  };
 //  initMap();
+
+// 	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
+// 	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
+// 	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
+// 	console.log(lat);
+// 	console.log(lon);
+// 	var local = {
+// 		lat: lat, 
+// 		lng: lon 
+// 	};
+// 	console.log(local);
+// 	function initMap() {
+// 	       	var map = new google.maps.Map(document.getElementById("map"), {
+// 	          zoom: 19,
+// 	          center: local
+// 	        });
+// 	        var marker = new google.maps.Marker({
+// 	          position: local,
+// 	          map: map
+// 	        });
+// 	        $("#movies-view").append(map);
+// 	        console.log("map: " + map);
+// 	};
+// 	initMap();
+
 
 
 //  --------------------------------------------------------------
