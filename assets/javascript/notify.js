@@ -25,87 +25,64 @@ var buttonArray = [];
 //  may need to get artwork from giphy or spotiFY or some other API
 //  may need zip/city converter API
 
-//  Need DOM data input from user
+//  unused variables
 var bandName = "Lettuce";
-//  Trim input?
-var cityName = "Austin";
 var beginDate = "2017-12-05";
 var endDate = "2018-03-01";
 var zip = "78753"
-//  Need date input and can use moment.js to convert data and range
+//
 
-
-
+var cityName = "";
 var songkickAPI = "pnFUa6ukavVrRL6g";
 var songkickMetro = "";
-var songkickLocationQuery = "http://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
-var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
 
-$.get(songkickLocationQuery).done(function(songkickLocation) {
-  songkickMetro = songkickLocation.resultsPage.results.location[0].metroArea.id;
-  console.log(songkickLocation.resultsPage.results.location[0].metroArea.id)//.city.metroArea.id);
-  console.log(songkickLocation.resultsPage.results.location[0].city.displayName);
-  console.log(songkickLocation.resultsPage.results.location[0].city.state.displayName);
-  // var = songkickLocation.resultsPage.results.location;
+$(document).ready(function(){
 
-  var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
+  //  Need DOM data input from user
+  $('.form-group').on('click', '#submit', function(){
+    $('#overlay').css("display", "none");
+    $(".showlist").empty();
+    console.log("click!");
+    cityName = $('#city-drpdn').val();
+    console.log(cityName);
+
+    // get city metro ID from SongKick
+    var songkickLocationQuery = "http://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
+
+    $.get(songkickLocationQuery).done(function(songkickLocation) {
+      songkickMetro = songkickLocation.resultsPage.results.location[0].metroArea.id;
+
+      //  get event info for metro area from SongKick
+      var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
+
+      $.get(songkickQuery).done(function(songkickData) {
+        // songkickData... get some show info for a Metro Area
+        for (var i = 0; i < 10; i++) {
   
-  $.get(songkickQuery).done(function(songkickData) {
-    // console.log(songkickData);
-    for (var i = 0; i < 10; i++) {
-      console.log(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName);
-      console.log(songkickData.resultsPage.results.event[i].venue.displayName);
-      console.log(songkickData.resultsPage.results.event[i].start.date);
-      console.log(songkickData.resultsPage.results.event[i].venue.uri);
-      console.log(songkickData.resultsPage.results.event[i].venue.uri);
-  
-      var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
-      var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
+          var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
+          var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
       
-      var showDiv = $('<div>');
-      showDiv.addClass('showDiv');
-      showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
-      showDiv.append(
-        `<div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
-        <div class="venue">${songkickData.resultsPage.results.event[i].venue.displayName}</div>
-        <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
-        `);
-      showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
-      $(".showlist").append(showDiv);
+          var showDiv = $('<div>');
+          showDiv.addClass('showDiv');
+          showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
+          showDiv.append(
+            `<div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
+            <div class="venue">${songkickData.resultsPage.results.event[i].venue.displayName}</div>
+            <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
+            `);
+          showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
+          $(".showlist").append(showDiv);
 
-      // $(".showlist").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
-      // $(".showlist").append(songkickData.resultsPage.results.event[i].venue.displayName + "<br>");
-      // $(".showlist").append(songkickData.resultsPage.results.event[i].start.date + "<br>");
-      // $(".showlist").append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
-      // $(".showlist").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
-    }
-  });
-});
+        }
 
-// var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
+      });
 
-// $.get(songkickQuery).done(function(songkickData) {
-//   // console.log(songkickData);
-//   for (var i = 0; i < 10; i++) {
-//     console.log(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName);
-//     console.log(songkickData.resultsPage.results.event[i].venue.displayName);
-//     console.log(songkickData.resultsPage.results.event[i].start.date);
-//     console.log(songkickData.resultsPage.results.event[i].venue.uri);
-//     console.log(songkickData.resultsPage.results.event[i].venue.uri);
+    });
 
-// // $.get(jamQuery2).done(function(jamresponse2) {
-// //   console.log(jamresponse2.Artists);
-// //   //  need to store band, venue and date info
-// // });
-//     var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
-//     var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
-//     $("#movies-view").append(songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + "<br>");
-//     $("#movies-view").append(songkickData.resultsPage.results.event[i].venue.displayName + "<br>");
-//     $("#movies-view").append(songkickData.resultsPage.results.event[i].start.date + "<br>");
-//     $("#movies-view").append('<a href="' + venueURL + '">Go to Venue</a>' + "<br>");
-//     $("#movies-view").append('<img src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />'  + "<br><hr>");
-//   }
-// });
+  })
+
+})
+
 
     // Brandon C map addition (has to be in this function)
 // 	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
