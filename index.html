@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Notify</title>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link href="assets/css/reset.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,10 +14,21 @@
     crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script type="text/javascript" src="assets/javascript/notify.js"></script>
+<!--     <script type="text/javascript">
+      function initMap(){
+        console.log('why does this work?')
+      }
+    </script> -->
   </head>
   <body>
+<!--     <div id="map" style ="height: 400px;"></div> -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4&callback=initMap"></script>
+   <!--  <div class="container">
+    <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script><a class="bit-widget-initializer" data-artist-name="Lady Gaga" data-display-local-dates="false" data-display-past-dates="true" data-auto-style="false" data-text-color="#F1C200" data-link-color="#2F95DE" data-popup-background-color="#9955B8" data-background-color="#9955B8" data-display-limit="10" data-link-text-color="#FFFFFF"></a>
+  </div> -->
+    <div id="container">
         <!--********************  OVERLAY  ************************ -->
-    <div id="overlay">
+    <!-- <div id="overlay">
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -82,9 +94,7 @@
         </div>
         <div class="col-md-4"></div>
        </div>
-    </div>    
-
-  
+    </div>     -->
                 <!--********************  HEADER   ************************ -->
 
       <nav id="navbar">
@@ -156,8 +166,9 @@
           </div>
         </div>  
       </nav>
-                  
-        <!--********************  CONTENT   ************************ -->
+    
+    <!--********************  CONTENT   ************************ -->
+    
         <div class="container-fluid">
           <div class="row">
               <div class="col-md-2">
@@ -171,8 +182,8 @@
           </div>
         </div>
     
-              <!--********************   FOOTER   ************************ -->
-
+    <!--********************   FOOTER   ************************ -->
+    
       <div class="footer">
         <div id="main-ftr-row" class="row">
           <div id="ftr-logo" class="col-md-4">
@@ -202,6 +213,16 @@
             </a>
           </div>
         </div>
+
+        <div id="footer-cpyrt">
+          <p>
+            &copy; 2017 - Brandon Shapyro, Greg Church, Brandon Cowart &amp; Jess Villasana
+          </p>
+        </div>
+
+        <div id="footer-api-links">
+        </div> 
+      </div>
     </div>
   </body>
 </html>

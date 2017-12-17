@@ -81,4 +81,26 @@ label {
 	color: white;
 }
 
-but
+.go-overlay {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  margin-left: 200px;
+}
+
+
+.form-overlay {
+
+}
+
+.form-header {
+  margin-left: 0px;
+}
+
+.go-header {
+
+}
+
+#header-logo {
+  padding-right: 2px;
+}
