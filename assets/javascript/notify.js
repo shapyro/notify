@@ -2,7 +2,6 @@
 //  BrandonC work
 var apiKey = "E-mail hopefully coming";
 var buttonArray = [];
-<<<<<<< HEAD
   
   //If we get freemusic archive API keys:
 //  function displayBandInfo(){
@@ -35,10 +34,6 @@ var buttonArray = [];
 // 				})
 // 	}
 
-
-
-=======
->>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
 
 //  BrandonS work
 //  user enters zip, date, and?
@@ -111,7 +106,6 @@ $(document).ready(function(){
 
     // Brandon C map addition (has to be in this function)
 
-<<<<<<< HEAD
 //  var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
 //  var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
 //  var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
@@ -159,9 +153,6 @@ $(document).ready(function(){
 // 	        console.log("map: " + map);
 // 	};
 // 	initMap();
-
-=======
->>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
 
 
 //  --------------------------------------------------------------
