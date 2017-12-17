@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script type="text/javascript" src="assets/javascript/notify.js"></script>
+    
 <!--     <script type="text/javascript">
       function initMap(){
         console.log('why does this work?')
@@ -96,16 +97,16 @@
         <div class="col-md-4"></div>
        </div>
     </div>     -->
-                <!--********************  HEADER   ************************ -->
+                <!--********************  HEADER - LOGO - MAIN BUTTON   ************************ -->
 
       <nav id="navbar">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <a class="navbar-brand" href="#">
             <img id="header-logo" src="assets/images/logo-purple.png" width="225px" height="100px">
             </a>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <form>
             <div class="form-group">
                <select  class="form-control" id="city-drpdn">
@@ -165,12 +166,26 @@
             </div>
           </form>
           </div>
+
+           <!--********************  HEADER - AUTHENTICATION  ************************ -->
+
+          <div class="col-md-4" id="authContainer">
+            <input type="email" id="txtEmail"  placeholder="Email">
+            <input type="password" id="txtPassword" placeholder="Password"><br>
+            <button id="btnLogin" class="btn btn-info">Log in</button>  
+            <div id="authBtnLayoutAndMessage">
+              <button id="btnSignUp" class="btn btn-warning hide">Sign Up</button>
+              <button id="btnLogout" class="btn btn-info hide">Log out</button>
+              <div id="authMessage"></div>
+            </div>
+           <script type="text/javascript" src="assets/javascript/auth.js"></script>
+          </div>
         </div>  
       </nav>
     
     <!--********************  CONTENT   ************************ -->
     
-        <div class="container-fluid">
+        <div class="container">
           <div class="row">
               <div class="col-md-2">
                   <div class="buffer">
@@ -180,6 +195,7 @@
               <div class="showlist">
               </div>
             </div>
+            
           </div>
         </div>
     

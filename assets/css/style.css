@@ -29,6 +29,34 @@ nav {
 	padding-top: 2px;
 }
 
+.form-group {
+  padding: 15px;
+}
+
+#submit {
+  margin: 10px 0 0 0;
+  width: 90px;
+  background-color: #952ed0;
+  color: #00cecb;
+}
+
+.btn {
+  margin-top: 3px;
+}
+
+/*Authentication==============*/
+button.hide{
+  display: none;
+}
+#authBtnLayoutAndMessage{
+  display: inline;
+}
+
+#authContainer {
+
+}
+/*END Authentication==========*/
+
 .buffer {
   width: 25%;
 }
