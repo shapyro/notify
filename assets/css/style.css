@@ -4,11 +4,7 @@
 }
 
 body {
-	background-color: #FFFFEA;
-}
-
-#container {
-	background-color: #FFFFEA;
+	background-color: #81818229;
 }
 
 nav {
@@ -34,7 +30,7 @@ nav {
 }
 .showDiv {
   margin: 2%;
-  border: 1px solid black;
+  background: #00cecb;
   height: 225px;
 }
 
@@ -49,6 +45,7 @@ nav {
   float: right;
   width: 75%;
   margin: 10px;
+  height: 25%;
 }
 .artist {
   float: left;
@@ -61,12 +58,15 @@ nav {
   width: 40%;
 }
 .showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 50px;
   float: right;
   margin: 10px;
   width: 75%;
 }
 #venueLink {
   margin: 10px;
+  color: white;
 }
 .footer {
    position: fixed;
