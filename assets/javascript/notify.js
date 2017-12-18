@@ -62,13 +62,13 @@ $(document).ready(function(){
     console.log(cityName);
 
     // get city metro ID from SongKick
-    var songkickLocationQuery = "http://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
+    var songkickLocationQuery = "https://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
 
     $.get(songkickLocationQuery).done(function(songkickLocation) {
       songkickMetro = songkickLocation.resultsPage.results.location[0].metroArea.id;
 
       //  get event info for metro area from SongKick
-      var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
+      var songkickQuery = "https://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
 
       $.get(songkickQuery).done(function(songkickData) {
         // songkickData... get some show info for a Metro Area
