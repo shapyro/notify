@@ -56,6 +56,12 @@ button.hide{
 .buffer {
   width: 25%;
 }
+
+#giphyImg {
+  margin: 10px;
+
+}
+
 .showDiv {
   margin: 2%;
   background: #00cecb;
