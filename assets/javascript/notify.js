@@ -17,6 +17,7 @@ var songkickMetro = "";
 
 $(document).ready(function(){
 
+
   //  Need DOM data input from user
   $('.form-group').on('click', '#submit', function(){
     $('#overlay').css("display", "none");
@@ -24,15 +25,41 @@ $(document).ready(function(){
     console.log("click!");
     cityName = $('#city-drpdn').val();
     console.log(cityName);
+    $("#left").empty();
+    $("#right").empty();
+
+    //  GIPHY API QUERY
+    // API KEY A3PdxAJAU30VlFlFYSJb0ArONXqO3J52
+    // SAMPLE QUERY: 
+    var giphyURL = "https://api.giphy.com/v1/gifs/random?api_key=A3PdxAJAU30VlFlFYSJb0ArONXqO3J52&tag=" + cityName + "&fmt=json";
+    for (var i=0; i<10; i++) {
+      $.get(giphyURL).done(function(response){
+        console.log(response.data);
+        var giphyImage = $("<img>");
+        giphyImage.attr("id", "giphyImg");
+        giphyImage.attr("src", response.data.fixed_width_downsampled_url);
+        $("#left").append(giphyImage);
+      });
+    };
+    for (var i=0; i<10; i++) {
+      $.get(giphyURL).done(function(response){
+        console.log(response.data);
+        var giphyImage = $("<img>");
+        giphyImage.attr("id", "giphyImg");
+        giphyImage.attr("src", response.data.fixed_width_downsampled_url);
+        $("#right").append(giphyImage);
+      });  
+    };
+
 
     // get city metro ID from SongKick
-    var songkickLocationQuery = "http://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
+    var songkickLocationQuery = "https://api.songkick.com/api/3.0/search/locations.json?query=" + cityName + "&apikey=" + songkickAPI;
 
     $.get(songkickLocationQuery).done(function(songkickLocation) {
       songkickMetro = songkickLocation.resultsPage.results.location[0].metroArea.id;
 
       //  get event info for metro area from SongKick
-      var songkickQuery = "http://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
+      var songkickQuery = "https://api.songkick.com/api/3.0/metro_areas/" + songkickMetro + "/calendar.json?apikey=" + songkickAPI;
 
       $.get(songkickQuery).done(function(songkickData) {
         // songkickData... get some show info for a Metro Area
@@ -42,7 +69,7 @@ $(document).ready(function(){
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
           console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName)
-      
+
           var showDiv = $('<div>');
           showDiv.data('lat', songkickData.resultsPage.results.event[i].venue.lat);
           showDiv.data('lon', songkickData.resultsPage.results.event[i].venue.lng)
@@ -94,7 +121,7 @@ $(document).ready(function(){
 })
 
 
-    
+
 
 
 //  --------------------------------------------------------------
