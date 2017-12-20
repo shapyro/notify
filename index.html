@@ -3,21 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Notify</title>
+<<<<<<< HEAD
+=======
+    <!-- <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Righteous" rel="stylesheet">
+>>>>>>> f55e5584b23253e1c899f05dfaa297a7f89cc3e9
     <link href="assets/css/reset.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script type="text/javascript" src="assets/javascript/notify.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript">
+=======
+    
+<!--     <script type="text/javascript">
+>>>>>>> f55e5584b23253e1c899f05dfaa297a7f89cc3e9
       function initMap(){
         console.log('')
       }
 
+<<<<<<< HEAD
     </script>
   </head>
   <body>
@@ -94,15 +105,28 @@
        </div>
     </div>    
                 <!--********************  HEADER   ************************ -->
+=======
+    </script> -->
+
+  </head>
+  <body>
+<!--     <div id="map" style ="height: 400px;"></div> -->
+
+    <!-- script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4&callback=initMap"></script-->
+
+
+    <!-- <div id="container"> -->
+
+>>>>>>> f55e5584b23253e1c899f05dfaa297a7f89cc3e9
 
       <nav id="navbar">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <a class="navbar-brand" href="#">
             <img id="header-logo" src="assets/images/logo-purple.png" width="225px" height="100px">
             </a>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <form>
             <div class="form-group">
                <select  class="form-control" id="city-drpdn">
@@ -162,23 +186,57 @@
             </div>
           </form>
           </div>
+
+           <!--********************  HEADER - AUTHENTICATION  ************************ -->
+
+          <div class="col-md-4" id="authContainer">
+            <input type="email" id="txtEmail"  placeholder="Email">
+            <input type="password" id="txtPassword" placeholder="Password"><br>
+            <button id="btnLogin" class="btn btn-info">Log in</button>  
+            <div id="authBtnLayoutAndMessage">
+              <button id="btnSignUp" class="btn btn-warning hide">Sign Up</button>
+              <button id="btnLogout" class="btn btn-info hide">Log out</button>
+              <div id="authMessage"></div>
+            </div>
+           <script type="text/javascript" src="assets/javascript/auth.js"></script>
+          </div>
         </div>  
       </nav>
+<<<<<<< HEAD
         <div class="container-fluid">
+=======
+    
+    <!--********************  CONTENT   ************************ -->
+    
+>>>>>>> f55e5584b23253e1c899f05dfaa297a7f89cc3e9
           <div class="row">
-              <div class="col-md-2">
-                  <div class="buffer">
-                  </div>
-                </div>
+            
+            <div class="col-md-2">
+              <div id="left" class="buffer">
+              </div>
+            </div>
+
             <div class="col-md-8">
               <div class="showlist">
               </div>
             </div>
+
+            <div class="col-md-2">
+              <div id="right" class="buffer">
+              </div>
+            </div>
+
           </div>
+<<<<<<< HEAD
         </div>
         <div id="map" style ="height: 400px;"></div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4&callback=initMap"></script>
       <div class="footer">
+=======
+    
+    <!--********************   FOOTER   ************************ -->
+       <div class="footer">
+>>>>>>> f55e5584b23253e1c899f05dfaa297a7f89cc3e9
         <div id="main-ftr-row" class="row">
           <div id="ftr-logo" class="col-md-4">
             <img src="assets/images/logo-beige.png" width="112px" height="50px">
@@ -207,15 +265,18 @@
             </a>
           </div>
         </div>
+<<<<<<< HEAD
         <div id="footer-cpyrt">
           <p>
             &copy; 2017 - Brandon Shapyro, Greg Church, Brandon Cowart &amp; Jess Villasana
           </p>
         </div>
 
+=======
+>>>>>>> f55e5584b23253e1c899f05dfaa297a7f89cc3e9
         <div id="footer-api-links">
         </div> 
       </div>
-    </div>
+    <!-- </div> -->
   </body>
 </html>

@@ -4,11 +4,7 @@
 }
 
 body {
-	background-color: #FFFFEA;
-}
-
-#container {
-	background-color: #FFFFEA;
+	background-color: #81818229;
 }
 
 nav {
@@ -29,12 +25,46 @@ nav {
 	padding-top: 2px;
 }
 
+.form-group {
+  padding: 15px;
+}
+
+#submit {
+  margin: 10px 0 0 0;
+  width: 90px;
+  background-color: #952ed0;
+  color: #00cecb;
+}
+
+.btn {
+  margin-top: 3px;
+}
+
+/*Authentication==============*/
+button.hide{
+  display: none;
+}
+#authBtnLayoutAndMessage{
+  display: inline;
+}
+
+#authContainer {
+
+}
+/*END Authentication==========*/
+
 .buffer {
   width: 25%;
 }
+
+#giphyImg {
+  margin: 10px;
+
+}
+
 .showDiv {
   margin: 2%;
-  border: 1px solid black;
+  background: #00cecb;
   height: 225px;
 }
 
@@ -49,6 +79,7 @@ nav {
   float: right;
   width: 75%;
   margin: 10px;
+  height: 25%;
 }
 .artist {
   float: left;
@@ -61,12 +92,15 @@ nav {
   width: 40%;
 }
 .showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 50px;
   float: right;
   margin: 10px;
   width: 75%;
 }
 #venueLink {
   margin: 10px;
+  color: white;
 }
 .footer {
    position: fixed;
@@ -118,6 +152,32 @@ label {
 	color: white;
 }
 
+<<<<<<< HEAD
+.go-overlay {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  margin-left: 200px;
+}
+
+.form-overlay {
+
+}
+
+.form-header {
+  margin-left: 0px;
+}
+
+.go-header {
+
+}
+
+#header-logo {
+  padding-right: 2px;
+}
+=======
+>>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
+
 #Logo{
    height: 50px;
 }
@@ -130,6 +190,14 @@ label {
   margin:5em auto;
   padding:1em; 
   animation: animation 2000ms linear infinite both;
+}
+
+ .footer {
+  padding-bottom: px;
+}
+
+#main-ftr-row {
+  max-height: 48px;
 }
 
 /* Generated with Bounce.js. Edit at https://goo.gl/Z3kBJC */
@@ -190,8 +258,13 @@ label {
   85.49% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   90.69% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   100% { -webkit-transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+<<<<<<< HEAD
+}
+=======
 }
 
 
 
 
+
+>>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
