@@ -11,13 +11,7 @@
   };
   firebase.initializeApp(config);
 
-  // const txtEmail = $("#txtEmail").val();
-  // console.log(txtEmail);
-  // const txtPassword = $("#txtPassword").val();
-  // const btnLogin = $("#btnLogin").val();
-  // const btnSignUp = $("#btnSignUp").val();
-  // const btnLogout = $("#btnLogout").val();
-
+  
 //login user on click
 $("#btnLogin").on('click', e => {
   //get email and password
