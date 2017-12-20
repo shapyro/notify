@@ -13,7 +13,8 @@ nav {
 }
 
 #navbar {
-	padding-top: 2px;
+  padding-top: 2px;
+  height: 134px;
 }
 
 .navbar-brand {
@@ -119,6 +120,9 @@ nav {
  /* float: left;
   margin: 10px;
   width: 40%;*/
+}
+.artist:hover {
+  font-size: 30px;
 }
 .venue {
   padding-top: 25px;

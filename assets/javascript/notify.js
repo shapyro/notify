@@ -17,9 +17,13 @@ var songkickMetro = "";
 
 $(document).ready(function(){
 
-
+  $('#city-drpdn').click(function(){
+    $('.showme').show();
+  })
   //  Need DOM data input from user
   $('.form-group').on('click', '#submit', function(){
+    // $('.showme').css("display",'none');
+    $('.showme').hide();
     $('#overlay').css("display", "none");
     $(".showlist").empty();
     cityName = $('#city-drpdn').val();
@@ -79,8 +83,8 @@ $(document).ready(function(){
             '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>'
           );
 
-          $('.showDiv').data('lat', lat);
-          $('.showDiv').data('lon', lng);
+          $('.venue').data('lat', lat);
+          $('.venue').data('lon', lng);
 
           // var showDiv = $('<div>');
           // showDiv.addClass('showDiv');
@@ -116,7 +120,7 @@ $(document).ready(function(){
 
   })
 
-    $('body').on('mouseenter mouseleave', '.showDiv', function(){
+    $('body').on('mouseenter mouseleave', '.venue', function(){
 			var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
 			var lat = $(this).data('lat');
 			var lon = $(this).data('lon');
