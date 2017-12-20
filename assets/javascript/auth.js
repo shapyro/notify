@@ -14,6 +14,7 @@
   };
   firebase.initializeApp(config);
 
+
   $(document).ready(function(){
 
 

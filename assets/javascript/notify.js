@@ -1,40 +1,4 @@
 
-//  BrandonC work
-var apiKey = "E-mail hopefully coming";
-var buttonArray = [];
-  
-  //If we get freemusic archive API keys:
-//  function displayBandInfo(){
-//    var bandName = $(this).attr("data-name");
-//    var queryURL = "https://freemusicarchive.org/api/trackSearch?q=" + bandName + "&limit=10";    
-//    $.ajax({
-//        url: queryURL,
-//        method: "GET"
-//      }).done(function(choice){
-//        console.log(choice.data[0]);
-//        for(i= 0; i<choice.data.length; i++){
-//          $('#band').prepend("<img src=" + choice.data[i].images.original_still.url +" data state = 'still' style = 'height = 400px' class= 'gif'>");
-//        }
-//        })
-//  }
-
-	
-	//If we get freemusic archive API keys:
-// 	function displayBandInfo(){
-// 		var bandName = $(this).attr("data-name");
-// 		var queryURL = "https://freemusicarchive.org/api/trackSearch?q=" + bandName + "&limit=10";		
-// 		$.ajax({
-// 				url: queryURL,
-// 				method: "GET"
-// 			}).done(function(choice){
-// 				console.log(choice.data[0]);
-// 				for(i= 0; i<choice.data.length; i++){
-// 					$('#band').prepend("<img src=" + choice.data[i].images.original_still.url +" data state = 'still' style = 'height = 400px' class= 'gif'>");
-// 				}
-// 				})
-// 	}
-
-
 //  BrandonS work
 //  user enters zip, date, and?
 //  may need to get artwork from giphy or spotiFY or some other API
@@ -45,7 +9,7 @@ var bandName = "Lettuce";
 var beginDate = "2017-12-05";
 var endDate = "2018-03-01";
 var zip = "78753"
-//
+
 
 var cityName = "";
 var songkickAPI = "pnFUa6ukavVrRL6g";
@@ -104,9 +68,56 @@ $(document).ready(function(){
   
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
+
+          console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName);
+
+          $(".showlist").append(
+            '<div class="showDiv">' +
+            '<div class="row">' + 
+            '<div class="col-lg-3">' + 
+            '<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" /></div>' +
+            '<div class="col-lg-9 bandInfo">' +
+            '<div class="row">' + 
+            '<div class="col-lg-6 artist">' + songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + '</div>' +
+            '<div class="col-lg-6 venue">@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
+            '</div>' +
+            '<div class="row">' + 
+            '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>');
+
+          // var showDiv = $('<div>');
+          // showDiv.addClass('showDiv');
+          // showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
+          // showDiv.append(
+          //   `<div class="bandInfo">
+          //     <div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
+          //     <div class="venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
+          //   </div>
+          //   <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
+          //   `
+          // );
+          // showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
+          // $(".showlist").append(showDiv);
+
+        }
+
+        $(".showDiv").hover(function(){
+         $(this).css({
+         'background-color': '#A398CF',
+         'transition-duration': '0.4s'
+         });
+          }, function(){
+          $(this).css({
+         'background-color': '#00cecb',
+         'transition-duration': '0.4s'
+         });
+         });
+
+
           console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName)
 
           var showDiv = $('<div>');
+          showDiv.data('lat', songkickData.resultsPage.results.event[i].venue.lat);
+          showDiv.data('lon', songkickData.resultsPage.results.event[i].venue.lng)
           showDiv.addClass('showDiv');
           showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
           showDiv.append(
@@ -118,7 +129,7 @@ $(document).ready(function(){
             `
           );
           showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
-          $(".showlist").append(showDiv);
+          $(".showlist").append(showDiv)
 
         }
 
@@ -128,58 +139,35 @@ $(document).ready(function(){
 
   })
 
+    $('body').on('mouseenter mouseleave', '.showDiv', function(){
+			var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
+			var lat = $(this).data('lat');
+			var lon = $(this).data('lon');
+			console.log(lat);
+			console.log(lon);
+			var local = {
+				lat: lat, 
+				lng: lon 
+			};
+			console.log(local);
+			function initMap() {
+			       	var map = new google.maps.Map(document.getElementById("map"), {
+			          zoom: 19,
+			          center: local
+			        });
+			        var marker = new google.maps.Marker({
+			          position: local,
+			          map: map
+			        });
+			        $("#map").append(map);
+			};
+			initMap();
+			});
+
 })
 
 
-    // Brandon C map addition (has to be in this function)
 
-//  var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
-//  var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
-//  var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
-//  console.log(lat);
-//  console.log(lon);
-//  var local = {
-//    lat: lat, 
-//    lng: lon 
-//  };
-//  console.log(local);
-//  function initMap() {
-//          var map = new google.maps.Map(document.getElementById("map"), {
-//            zoom: 19,
-//            center: local
-//          });
-//          var marker = new google.maps.Marker({
-//            position: local,
-//            map: map
-//          });
-//          $("#movies-view").append(map);
-//          console.log("map: " + map);
-//  };
-//  initMap();
-
-// 	var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
-// 	var lat = parseFloat(songkickData.resultsPage.results.event[i].venue.lat);
-// 	var lon = parseFloat(songkickData.resultsPage.results.event[i].venue.lng);
-// 	console.log(lat);
-// 	console.log(lon);
-// 	var local = {
-// 		lat: lat, 
-// 		lng: lon 
-// 	};
-// 	console.log(local);
-// 	function initMap() {
-// 	       	var map = new google.maps.Map(document.getElementById("map"), {
-// 	          zoom: 19,
-// 	          center: local
-// 	        });
-// 	        var marker = new google.maps.Marker({
-// 	          position: local,
-// 	          map: map
-// 	        });
-// 	        $("#movies-view").append(map);
-// 	        console.log("map: " + map);
-// 	};
-// 	initMap();
 
 
 //  --------------------------------------------------------------
