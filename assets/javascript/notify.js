@@ -45,7 +45,7 @@ var bandName = "Lettuce";
 var beginDate = "2017-12-05";
 var endDate = "2018-03-01";
 var zip = "78753"
-//
+
 
 var cityName = "";
 var songkickAPI = "pnFUa6ukavVrRL6g";
@@ -104,23 +104,48 @@ $(document).ready(function(){
   
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
-          console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName)
+          console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName);
 
-          var showDiv = $('<div>');
-          showDiv.addClass('showDiv');
-          showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
-          showDiv.append(
-            `<div class="bandInfo">
-              <div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
-              <div class="venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
-            </div>
-            <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
-            `
-          );
-          showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
-          $(".showlist").append(showDiv);
+          $(".showlist").append(
+            '<div class="showDiv">' +
+            '<div class="row">' + 
+            '<div class="col-lg-3">' + 
+            '<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" /></div>' +
+            '<div class="col-lg-9 bandInfo">' +
+            '<div class="row">' + 
+            '<div class="col-lg-6 artist">' + songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + '</div>' +
+            '<div class="col-lg-6 venue">@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
+            '</div>' +
+            '<div class="row">' + 
+            '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>');
+
+          // var showDiv = $('<div>');
+          // showDiv.addClass('showDiv');
+          // showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
+          // showDiv.append(
+          //   `<div class="bandInfo">
+          //     <div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
+          //     <div class="venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
+          //   </div>
+          //   <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
+          //   `
+          // );
+          // showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
+          // $(".showlist").append(showDiv);
 
         }
+
+        $(".showDiv").hover(function(){
+         $(this).css({
+         'background-color': '#A398CF',
+         'transition-duration': '0.4s'
+         });
+          }, function(){
+          $(this).css({
+         'background-color': '#00cecb',
+         'transition-duration': '0.4s'
+         });
+         });
 
       });
 

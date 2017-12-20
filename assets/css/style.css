@@ -53,8 +53,12 @@ button.hide{
 }
 /*END Authentication==========*/
 
-.buffer {
+/*.buffer {
   width: 25%;
+}*/
+
+.adBanner {
+  padding-top: 20px;
 }
 
 #giphyImg {
@@ -76,27 +80,34 @@ button.hide{
 .bandInfo {
   font-family: 'Righteous', cursive;
   font-size: 25px;
-  float: right;
+  position: relative;
+  /*float: right;
   width: 75%;
   margin: 10px;
   height: 25%;
+  position: relative;*/
 }
 .artist {
-  float: left;
+  padding-top: 25px;
+ /* float: left;
   margin: 10px;
-  width: 40%;
+  width: 40%;*/
 }
 .venue {
-  float: right;
+  padding-top: 25px;
+ /* float: right;
   margin: 10px;
-  width: 40%;
+  width: 40%;*/
 }
 .showDate {
   font-family: 'Monoton', cursive;
   font-size: 50px;
+  position: absolute;
+  bottom: 20px;
+ /* padding-bottom: 25px;
   float: right;
   margin: 10px;
-  width: 75%;
+  width: 75%;*/
 }
 #venueLink {
   margin: 10px;
