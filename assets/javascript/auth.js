@@ -1,5 +1,8 @@
 //User Auth
 
+
+
+
  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBWyLJ7Np6kykNDHddLPk4200K2EXDAD6A",
@@ -11,7 +14,43 @@
   };
   firebase.initializeApp(config);
 
-  
+
+  $(document).ready(function(){
+
+
+    //  reveal login information
+      $(".authBar").hover(function() {
+        console.log("quit hovering");
+        $(".authBar").css("background", "transparent");
+        $(".authBar").animate({ top: "0px", right: "0px", width: "300px"}, "slow");
+        $(".authBar").empty();
+        $('.authBar').html(
+          `<input type="email" id="txtEmail"  placeholder="Email">
+          <input type="password" id="txtPassword" placeholder="Password"><br>
+          <button id="btnLogin" class="btn btn-info">Log in</button>  
+          <div id="authBtnLayoutAndMessage">
+            <button id="btnSignUp" class="btn btn-warning hide">Sign Up</button>
+            <button id="btnLogout" class="btn btn-info hide">Log out</button>
+            <div id="authMessage"></div>
+          </div>
+          </div>`
+        )
+        $('#btnLogout').css("display", "none");
+      },function(){
+        console.log("mouseout");
+        $(".authBar").animate({ top: "0px", right: "0px", width: "50px" }, "slow");
+        $(".authBar").empty();
+        $(".authBar").append(
+          `<div id="blot">L</div>
+          <div id="blot">O</div>
+          <div id="blot">G</div>
+          <div id="blot">I</div>
+          <div id="blot">N</div>
+          `);        
+      }
+    );
+    
+
 //login user on click
 $("#btnLogin").on('click', e => {
   //get email and password
@@ -74,3 +113,7 @@ $("#btnLogout").on('click', e => {
   		
   	}
   });
+
+});
+  
+  

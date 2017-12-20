@@ -41,7 +41,34 @@ nav {
 }
 
 /*Authentication==============*/
-button.hide{
+.authBar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 134px;
+  width: 50px;
+  /* background: white; */
+}
+/* .something {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 134px;
+  width: 200px;
+} */
+/* .animate {
+  width: 200px;
+} */
+/* .authBar:hover {
+  background: blueviolet;
+} */
+#blot {
+  background: #A398CF;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+#btnLogout{
   display: none;
 }
 #authBtnLayoutAndMessage{
