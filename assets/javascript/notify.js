@@ -22,19 +22,16 @@ $(document).ready(function(){
   $('.form-group').on('click', '#submit', function(){
     $('#overlay').css("display", "none");
     $(".showlist").empty();
-    console.log("click!");
     cityName = $('#city-drpdn').val();
-    console.log(cityName);
     $("#left").empty();
     $("#right").empty();
 
-    //  GIPHY API QUERY
+    // GIPHY API QUERY
     // API KEY A3PdxAJAU30VlFlFYSJb0ArONXqO3J52
     // SAMPLE QUERY: 
     var giphyURL = "https://api.giphy.com/v1/gifs/random?api_key=A3PdxAJAU30VlFlFYSJb0ArONXqO3J52&tag=" + cityName + "&fmt=json";
     for (var i=0; i<10; i++) {
       $.get(giphyURL).done(function(response){
-        console.log(response.data);
         var giphyImage = $("<img>");
         giphyImage.attr("id", "giphyImg");
         giphyImage.attr("src", response.data.fixed_width_downsampled_url);
@@ -43,7 +40,6 @@ $(document).ready(function(){
     };
     for (var i=0; i<10; i++) {
       $.get(giphyURL).done(function(response){
-        console.log(response.data);
         var giphyImage = $("<img>");
         giphyImage.attr("id", "giphyImg");
         giphyImage.attr("src", response.data.fixed_width_downsampled_url);
@@ -63,13 +59,11 @@ $(document).ready(function(){
 
       $.get(songkickQuery).done(function(songkickData) {
         // songkickData... get some show info for a Metro Area
-        for (var i = 0; i < 10; i++) {
-          console.log(songkickData.resultsPage.results);
-  
+        for (var i = 0; i < 10; i++) {  
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
-
-          console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName);
+          var lat = songkickData.resultsPage.results.event[i].venue.lat;
+          var lng = songkickData.resultsPage.results.event[i].venue.lng;
 
           $(".showlist").append(
             '<div class="showDiv">' +
@@ -82,7 +76,11 @@ $(document).ready(function(){
             '<div class="col-lg-6 venue">@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
             '</div>' +
             '<div class="row">' + 
-            '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>');
+            '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>'
+          );
+
+          $('.showDiv').data('lat', lat);
+          $('.showDiv').data('lon', lng);
 
           // var showDiv = $('<div>');
           // showDiv.addClass('showDiv');
@@ -98,7 +96,7 @@ $(document).ready(function(){
           // showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
           // $(".showlist").append(showDiv);
 
-        }
+        } //end FOR loop
 
         $(".showDiv").hover(function(){
          $(this).css({
@@ -111,27 +109,6 @@ $(document).ready(function(){
          'transition-duration': '0.4s'
          });
          });
-
-
-          console.log(songkickData.resultsPage.results.event[i].performance[0].artist.displayName)
-
-          var showDiv = $('<div>');
-          showDiv.data('lat', songkickData.resultsPage.results.event[i].venue.lat);
-          showDiv.data('lon', songkickData.resultsPage.results.event[i].venue.lng)
-          showDiv.addClass('showDiv');
-          showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
-          showDiv.append(
-            `<div class="bandInfo">
-              <div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
-              <div class="venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
-            </div>
-            <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
-            `
-          );
-          showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
-          $(".showlist").append(showDiv)
-
-        }
 
       });
 
