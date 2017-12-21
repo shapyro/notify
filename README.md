@@ -32,4 +32,4 @@ The team and I worked on a little bit of everything.
 - Map Coordinate relay from Songkick to Google
 - Login functionality
 
-* Home page and giphy gifs courtesy of Jess V.
+## Home page and giphy gifs courtesy of Jess V.
