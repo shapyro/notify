@@ -108,38 +108,23 @@ nav {
   font-family: 'Righteous', cursive;
   font-size: 25px;
   position: relative;
-  /*float: right;
-  width: 75%;
-  margin: 10px;
-  height: 25%;
-  position: relative;*/
 }
+
 .artist {
   padding-top: 25px;
- /* float: left;
-  margin: 10px;
-  width: 40%;*/
 }
+
 .venue {
   padding-top: 25px;
- /* float: right;
-  margin: 10px;
-  width: 40%;*/
 }
+
 .showDate {
   font-family: 'Monoton', cursive;
   font-size: 50px;
   position: absolute;
   bottom: 20px;
- /* padding-bottom: 25px;
-  float: right;
-  margin: 10px;
-  width: 75%;*/
 }
-#venueLink {
-  margin: 10px;
-  color: white;
-}
+
 .footer {
    position: fixed;
    left: 0;
@@ -213,8 +198,6 @@ label {
 #header-logo {
   padding-right: 2px;
 }
-=======
->>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
 
 #Logo{
    height: 50px;
@@ -236,6 +219,75 @@ label {
 
 #main-ftr-row {
   max-height: 48px;
+}
+
+/*Media Queries=======================================================================*/
+
+@media screen and (max-width: 1200px) {
+ .bandInfo {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  position: relative;
+}
+.artist {
+  padding-top: 25px;
+}
+
+.venue {
+  padding-top: 25px;
+}
+
+.showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 45px;
+  position: absolute;
+  bottom: 20px;
+}
+
+
+}
+
+@media screen and (max-width: 900px) {
+
+  #giphyImg {
+  display: none;
+}
+
+.adBanner {
+  display: none;
+}
+
+ .bandInfo {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  position: relative;
+  /*float: right;
+  width: 75%;
+  margin: 10px;
+  height: 25%;
+  position: relative;*/
+}
+.artist {
+  padding-top: 25px;
+}
+
+.venue {
+  padding-top: 25px;
+}
+
+.showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 45px;
+  position: absolute;
+  bottom: 20px;
+}
+
+#venueLink {
+  margin: 10px;
+  color: white;
+}
+
+
 }
 
 /* Generated with Bounce.js. Edit at https://goo.gl/Z3kBJC */
