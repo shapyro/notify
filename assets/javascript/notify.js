@@ -63,7 +63,7 @@ $(document).ready(function(){
 
       $.get(songkickQuery).done(function(songkickData) {
         // songkickData... get some show info for a Metro Area
-        for (var i = 0; i < 30; i++) {  
+        for (var i = 0; i < 10; i++) {  
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
           var latVar = songkickData.resultsPage.results.event[i].venue.lat;
