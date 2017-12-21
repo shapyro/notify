@@ -67,7 +67,7 @@ $(document).ready(function(){
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
           var lat = songkickData.resultsPage.results.event[i].venue.lat;
-          var lng = songkickData.resultsPage.results.event[i].venue.lng;
+          var lon = songkickData.resultsPage.results.event[i].venue.lng;
 
           $(".showlist").append(
             '<div class="showDiv">' +
@@ -77,14 +77,14 @@ $(document).ready(function(){
             '<div class="col-lg-9 bandInfo">' +
             '<div class="row">' + 
             '<div class="col-lg-6 artist">' + songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + '</div>' +
-            '<div class="col-lg-6 venue">@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
+            '<div class="col-lg-6 venue" lat='+lat+' lng='+lon+'>@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
             '</div>' +
             '<div class="row">' + 
             '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>'
           );
 
-          $('.venue').data('lat', lat);
-          $('.venue').data('lon', lng);
+          $('.venue').data('lat', songkickData.resultsPage.results.event[i].venue.lat);
+          $('.venue').data('lon', songkickData.resultsPage.results.event[i].venue.lng);
 
           // var showDiv = $('<div>');
           // showDiv.addClass('showDiv');
