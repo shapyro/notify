@@ -13,7 +13,8 @@ nav {
 }
 
 #navbar {
-	padding-top: 2px;
+  padding-top: 2px;
+  height: 134px;
 }
 
 .navbar-brand {
@@ -113,7 +114,13 @@ nav {
 .artist {
   padding-top: 25px;
 }
+<<<<<<< HEAD
+.artist:hover {
+  font-size: 30px;
+}
+=======
 
+>>>>>>> 4e4a6a18ca4b4763ee08422ce7e547554f2a2502
 .venue {
   padding-top: 25px;
 }

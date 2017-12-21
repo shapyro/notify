@@ -17,9 +17,13 @@ var songkickMetro = "";
 
 $(document).ready(function(){
 
-
+  $('#city-drpdn').click(function(){
+    $('.showme').show();
+  })
   //  Need DOM data input from user
   $('.form-group').on('click', '#submit', function(){
+    // $('.showme').css("display",'none');
+    $('.showme').hide();
     $('#overlay').css("display", "none");
     $(".showlist").empty();
     cityName = $('#city-drpdn').val();
@@ -63,8 +67,23 @@ $(document).ready(function(){
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
           var lat = songkickData.resultsPage.results.event[i].venue.lat;
-          var lng = songkickData.resultsPage.results.event[i].venue.lng;
+          var lon = songkickData.resultsPage.results.event[i].venue.lng;
 
+<<<<<<< HEAD
+          $(".showlist").append(
+            '<div class="showDiv">' +
+            '<div class="row">' + 
+            '<div class="col-lg-3">' + 
+            '<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" /></div>' +
+            '<div class="col-lg-9 bandInfo">' +
+            '<div class="row">' + 
+            '<div class="col-lg-6 artist">' + songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + '</div>' +
+            '<div class="col-lg-6 venue" lat='+lat+' lng='+lon+'>@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
+            '</div>' +
+            '<div class="row">' + 
+            '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>'
+          );
+=======
           $(".showlist").append(`
             <div class="showDiv">
             <div class="row">
@@ -78,9 +97,10 @@ $(document).ready(function(){
             <div class="row"> 
             <div class="col-lg-12 col-md-12 showDate"> ${songkickData.resultsPage.results.event[i].start.date}</div></div></div>
           `);
+>>>>>>> 4e4a6a18ca4b4763ee08422ce7e547554f2a2502
 
-          $('.showDiv').data('lat', lat);
-          $('.showDiv').data('lon', lng);
+          $('.venue').data('lat', songkickData.resultsPage.results.event[i].venue.lat);
+          $('.venue').data('lon', songkickData.resultsPage.results.event[i].venue.lng);
 
           // var showDiv = $('<div>');
           // showDiv.addClass('showDiv');
@@ -116,7 +136,7 @@ $(document).ready(function(){
 
   })
 
-    $('body').on('mouseenter mouseleave', '.showDiv', function(){
+    $('body').on('mouseenter mouseleave', '.venue', function(){
 			var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
 			var lat = $(this).data('lat');
 			var lon = $(this).data('lon');
