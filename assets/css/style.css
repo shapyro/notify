@@ -114,13 +114,10 @@ nav {
 .artist {
   padding-top: 25px;
 }
-<<<<<<< HEAD
 .artist:hover {
   font-size: 30px;
 }
-=======
 
->>>>>>> 4e4a6a18ca4b4763ee08422ce7e547554f2a2502
 .venue {
   padding-top: 25px;
 }
@@ -182,7 +179,7 @@ label {
 	color: white;
 }
 
-<<<<<<< HEAD
+
 .go-overlay {
   background-color: transparent;
   color: white;
