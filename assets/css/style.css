@@ -135,19 +135,6 @@ button.hide{
 	font-size: 10px;
 }
 
-#overlay {
-    position: fixed;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-    cursor: pointer;
-}
 
 #text{
     position: absolute;
@@ -163,18 +150,6 @@ label {
 	color: white;
 }
 
-<<<<<<< HEAD
-.go-overlay {
-  background-color: transparent;
-  color: white;
-  text-align: center;
-  margin-left: 200px;
-}
-
-.form-overlay {
-
-}
-
 .form-header {
   margin-left: 0px;
 }
@@ -186,9 +161,6 @@ label {
 #header-logo {
   padding-right: 2px;
 }
-=======
->>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
-
 #Logo{
    height: 50px;
 }
@@ -269,13 +241,5 @@ label {
   85.49% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   90.69% { -webkit-transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.999, 0, 0, 0, 0, 1.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   100% { -webkit-transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
-<<<<<<< HEAD
+
 }
-=======
-}
-
-
-
-
-
->>>>>>> 356e5a01f991f9cf9a60f89f207d7f9c28e526f9
