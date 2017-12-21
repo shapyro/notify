@@ -297,7 +297,9 @@ label {
 }
 
 @media screen and (max-width: 785px) {
-
+  #header-logo {
+  display: none;
+}
   #giphyImg {
   display: none;
 }
@@ -309,6 +311,7 @@ label {
 }
 .showDiv {
   height: 275px;
+  margin-top: 10px;
 }
 
 .bandPic {
