@@ -80,9 +80,7 @@ nav {
 }
 /*END Authentication==========*/
 
-/*.buffer {
-  width: 25%;
-}*/
+
 
 .adBanner {
   padding-top: 20px;
@@ -99,8 +97,8 @@ nav {
   height: 225px;
 }
 
-#bandPic {
-  float: left;
+.bandPic {
+  /*float: left;*/
   margin: 10px;
   width: 200px;
 }
@@ -111,11 +109,11 @@ nav {
 }
 
 .artist {
-  padding-top: 25px;
+  padding: 25px 10px 0 20px;
 }
 
 .venue {
-  padding-top: 25px;
+  padding: 25px 20px 0 10px;
 }
 
 .showDate {
@@ -224,22 +222,30 @@ label {
 /*Media Queries=======================================================================*/
 
 @media screen and (max-width: 1200px) {
+  .showDiv {
+  height: 175px;
+}
+
+  .bandPic {
+  width: 150px;
+}
+
  .bandInfo {
   font-family: 'Righteous', cursive;
   font-size: 25px;
   position: relative;
 }
 .artist {
-  padding-top: 25px;
+  padding: 25px 10px 0 10px;
 }
 
 .venue {
-  padding-top: 25px;
+  padding: 25px 10px 0 10px;
 }
 
 .showDate {
   font-family: 'Monoton', cursive;
-  font-size: 45px;
+  font-size: 40px;
   position: absolute;
   bottom: 20px;
 }
@@ -247,13 +253,14 @@ label {
 
 }
 
-@media screen and (max-width: 900px) {
-
+@media screen and (max-width: 992px) {
   #giphyImg {
   display: none;
 }
-
 .adBanner {
+  display: none;
+}
+.hideOnMobile {
   display: none;
 }
 
@@ -261,25 +268,20 @@ label {
   font-family: 'Righteous', cursive;
   font-size: 25px;
   position: relative;
-  /*float: right;
-  width: 75%;
-  margin: 10px;
-  height: 25%;
-  position: relative;*/
 }
 .artist {
-  padding-top: 25px;
+  padding: 10px 10px 0 10px;
 }
 
 .venue {
-  padding-top: 25px;
+  padding: 10px 10px 0 10px;
 }
 
 .showDate {
   font-family: 'Monoton', cursive;
-  font-size: 45px;
+  font-size: 35px;
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
 }
 
 #venueLink {
@@ -289,6 +291,113 @@ label {
 
 
 }
+
+@media screen and (max-width: 785px) {
+
+  #giphyImg {
+  display: none;
+}
+.adBanner {
+  display: none;
+}
+.hideOnMobile {
+  display: none;
+}
+.showDiv {
+  height: 275px;
+}
+
+.bandPic {
+  /*float: left;*/
+  margin: 10px;
+  width: 150px;
+}
+.bandInfo {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  position: relative;
+}
+
+.artist {
+  padding: 10px 10px 0 20px;
+}
+
+.venue {
+  padding: 10px 20px 0 10px;
+}
+
+.showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 35px;
+  position: absolute;
+  bottom: 10px;
+}
+
+ /*.bandInfo {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  position: relative;
+
+}
+.artist {
+  padding-top: 10px;
+}
+
+.venue {
+  padding-top: 10px;
+}
+
+.showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 35px;
+  position: absolute;
+  bottom: 10px;
+}*/
+
+}
+
+/*@media screen and (max-width: 768px) {
+
+  #giphyImg {
+  display: none;
+}
+.adBanner {
+  display: none;
+}
+.hideOnMobile {
+   display: none;
+}
+.showDiv {
+  height: 275px;
+}
+ .bandPic {
+  width: 150px;
+  padding: 10px;
+}
+}
+
+ .bandInfo {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  position: relative;
+
+}
+.artist {
+  padding-top: 10px;
+}
+
+.venue {
+  padding-top: 10px;
+}
+
+.showDate {
+  font-family: 'Monoton', cursive;
+  font-size: 35px;
+  position: absolute;
+  bottom: 10px;
+}
+
+}*/
 
 /* Generated with Bounce.js. Edit at https://goo.gl/Z3kBJC */
 
