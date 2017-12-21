@@ -69,21 +69,6 @@ $(document).ready(function(){
           var lat = songkickData.resultsPage.results.event[i].venue.lat;
           var lon = songkickData.resultsPage.results.event[i].venue.lng;
 
-<<<<<<< HEAD
-          $(".showlist").append(
-            '<div class="showDiv">' +
-            '<div class="row">' + 
-            '<div class="col-lg-3">' + 
-            '<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" /></div>' +
-            '<div class="col-lg-9 bandInfo">' +
-            '<div class="row">' + 
-            '<div class="col-lg-6 artist">' + songkickData.resultsPage.results.event[i].performance["0"].artist.displayName + '</div>' +
-            '<div class="col-lg-6 venue" lat='+lat+' lng='+lon+'>@ ' + songkickData.resultsPage.results.event[i].venue.displayName + '</div>' +
-            '</div>' +
-            '<div class="row">' + 
-            '<div class="col-lg-12 showDate">' + songkickData.resultsPage.results.event[i].start.date + '</div></div></div>'
-          );
-=======
           $(".showlist").append(`
             <div class="showDiv">
             <div class="row">
@@ -97,7 +82,6 @@ $(document).ready(function(){
             <div class="row"> 
             <div class="col-lg-12 col-md-12 showDate"> ${songkickData.resultsPage.results.event[i].start.date}</div></div></div>
           `);
->>>>>>> 4e4a6a18ca4b4763ee08422ce7e547554f2a2502
 
           $('.venue').data('lat', songkickData.resultsPage.results.event[i].venue.lat);
           $('.venue').data('lon', songkickData.resultsPage.results.event[i].venue.lng);
