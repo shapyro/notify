@@ -24,7 +24,7 @@ $(document).ready(function(){
   $('.form-group').on('click', '#submit', function(){
     // $('.showme').css("display",'none');
     $('.showme').hide();
-    $('#overlay').css("display", "none");
+    // $('#overlay').css("display", "none");
     $(".showlist").empty();
     cityName = $('#city-drpdn').val();
     $("#left").empty();
@@ -63,11 +63,11 @@ $(document).ready(function(){
 
       $.get(songkickQuery).done(function(songkickData) {
         // songkickData... get some show info for a Metro Area
-        for (var i = 0; i < 10; i++) {  
+        for (var i = 0; i < 30; i++) {  
           var venueURL = songkickData.resultsPage.results.event[i].venue.uri;
           var artistImage = songkickData.resultsPage.results.event[i].performance["0"].artist.id;
-          var lat = songkickData.resultsPage.results.event[i].venue.lat;
-          var lon = songkickData.resultsPage.results.event[i].venue.lng;
+          var latVar = songkickData.resultsPage.results.event[i].venue.lat;
+          var lngVar = songkickData.resultsPage.results.event[i].venue.lng;
 
           $(".showlist").append(`
             <div class="showDiv">
@@ -77,28 +77,11 @@ $(document).ready(function(){
             <div class="col-lg-9 col-md-9 col-sm-12 bandInfo">
             <div class="row"> 
             <div class="col-lg-6 col-md-12 artist"> ${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
-            <div class="col-lg-6 col-md-12 venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
+            <div class="col-lg-6 col-md-12 venue" id="locations location-${[i]}" latitude="${latVar}" longitude="${lngVar}">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
             </div>
             <div class="row"> 
             <div class="col-lg-12 col-md-12 showDate"> ${songkickData.resultsPage.results.event[i].start.date}</div></div></div>
           `);
-
-          $('.venue').data('lat', songkickData.resultsPage.results.event[i].venue.lat);
-          $('.venue').data('lon', songkickData.resultsPage.results.event[i].venue.lng);
-
-          // var showDiv = $('<div>');
-          // showDiv.addClass('showDiv');
-          // showDiv.append('<img id="bandPic" src="https://images.sk-static.com/images/media/profile_images/artists/' + artistImage + '/huge_avatar" />');
-          // showDiv.append(
-          //   `<div class="bandInfo">
-          //     <div class="artist">${songkickData.resultsPage.results.event[i].performance["0"].artist.displayName}</div>
-          //     <div class="venue">@ ${songkickData.resultsPage.results.event[i].venue.displayName}</div>
-          //   </div>
-          //   <div class="showDate">${songkickData.resultsPage.results.event[i].start.date}</div>
-          //   `
-          // );
-          // showDiv.append('<a id="venueLink" href="' + venueURL + '">Go to Venue</a>' + "<br>");
-          // $(".showlist").append(showDiv);
 
         } //end FOR loop
 
@@ -122,8 +105,8 @@ $(document).ready(function(){
 
     $('body').on('mouseenter mouseleave', '.venue', function(){
 			var mapAPIKey = "AIzaSyDWRATTUjfzqHd8GWYoogCWb3uZyJkNK-4";
-			var lat = $(this).data('lat');
-			var lon = $(this).data('lon');
+      var lat = parseFloat($(this).attr('latitude'));
+      var lon = parseFloat($(this).attr('longitude'));
 			console.log(lat);
 			console.log(lon);
 			var local = {
@@ -140,7 +123,7 @@ $(document).ready(function(){
 			          position: local,
 			          map: map
 			        });
-			        $("#map").append(map);
+			        $("#map").html(map);
 			};
 			initMap();
 			});
