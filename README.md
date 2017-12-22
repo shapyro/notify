@@ -11,7 +11,9 @@ APIs
 
 # Overview
 
-It all started with an idea to find shows, but there were many discussions on discovery of music and what data would be needed to satisfy a search for discovery.
+It all started with an idea to find shows, but there were many discussions on discovery of music and what data would be needed to satisfy a search for discovery. Notify ultimately became a website that generates a list of live shows in your city as a means of providing a way to experience new music primarilty through live shows. 
+
+We were inspired by the universal craving for an easier way to get information about bands, venues and live shows. 
 
 From Genre, to Event Date, to simply naming a band you want to see, the team had to figure this out by running different API requests to see what we could get, where even that held it's own barrier to entry by needing to successfully request and receive API access keys from various search partners.
 
